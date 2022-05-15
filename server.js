@@ -11,6 +11,11 @@ app.use(express.json());
 app.use("/api/auth", AuthRoute);
 app.use("/api/movies", MovieRoutes);
 
-app.listen(process.env.port, () =>
-    console.log(`server is running onport ${process.env.port}`)
+// app.listen(process.env.port, () =>
+//     console.log(`server is running onport ${process.env.port}`)
+// );
+
+const port = 4000;
+app.listen(port, () =>
+    console.log(`server is running onport ${port}`)
 );

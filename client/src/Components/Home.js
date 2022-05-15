@@ -8,7 +8,7 @@ function Home() {
     let moviesToDisplay;
     if (movies) {
         moviesToDisplay = movies.map((el) => (
-            <MovieCard el={el}></MovieCard>
+            <MovieCard el={el} key={el._id}></MovieCard>
         ));
     } else {
         moviesToDisplay = <div>Movies not loaded</div>;

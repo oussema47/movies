@@ -14,7 +14,7 @@ function Navbar() {
                 <nav>
                     <ul>
                         <Link to="/">
-                            <li onClick={() => dispatch(getmovies())}>Home</li>
+                            <li onClick={() => getmovies()(dispatch)}>Home</li>
                         </Link>
                         <Link to="/profile">
                             <li>Profile</li>
@@ -43,7 +43,7 @@ function Navbar() {
                 <nav>
                     <ul>
                         <Link to="/">
-                            <li onClick={() => dispatch(getmovies())}>Home</li>
+                            <li onClick={() => getmovies()(dispatch)}>Home</li>
                         </Link>
                         <Link to="/signIn">
                             <li>Sign In</li>

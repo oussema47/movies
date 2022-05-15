@@ -12,7 +12,7 @@ import {
 } from "./types";
 export const register = (newuser, Navigate) => async (dispatch) => {
     try {
-        const res = await axios.post("/auth/signUp", newuser);
+        const res = await axios.post("/api/auth/signUp", newuser);
         dispatch({ type: REGISTER, payload: res.data });
         console.log(res.data);
         Navigate("/Profile");
@@ -22,7 +22,7 @@ export const register = (newuser, Navigate) => async (dispatch) => {
 };
 export const login = (newuser, Navigate) => async (dispatch) => {
     try {
-        const res = await axios.post("/auth/signIn", newuser);
+        const res = await axios.post("/api/auth/signIn", newuser);
         dispatch({ type: LOGIN, payload: res.data });
         console.log(res.data);
         Navigate("/Profile");
@@ -39,7 +39,7 @@ export const getcurrent = () => async (dispatch) => {
         },
     };
     try {
-        const res = await axios.get("/auth/current", config);
+        const res = await axios.get("/api/auth/current", config);
 
         dispatch({ type: GET_CURRENT, payload: res.data });
     } catch (error) {
@@ -59,7 +59,7 @@ export const clearerrors = () => {
 
 export const getmovies = () => async (dispatch) => {
     try {
-        const res = await axios.get("/movies/");
+        const res = await axios.get("/api/movies/");
         dispatch({ type: GET_MOVIES, payload: res.data });
 
     } catch (error) {
@@ -74,7 +74,7 @@ export const mymovies = () => async (dispatch) => {
         },
     };
     try {
-        const res = await axios.get("/movies/mymovies", config);
+        const res = await axios.get("/api/movies/mymovies", config);
 
         dispatch({ type: MY_MOVIES, payload: res.data });
         console.log(res.data.mymovies);
@@ -97,7 +97,7 @@ export const addmovie =
             info.append("image", image);
 
             try {
-                const res = await axios.post("/movies/addMovie", info, config);
+                const res = await axios.post("/api/movies/addMovie", info, config);
                 dispatch(getmovies());
             } catch (error) {
                 console.log(error);
